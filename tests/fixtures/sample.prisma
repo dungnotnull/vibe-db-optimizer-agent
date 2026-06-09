@@ -1,0 +1,74 @@
+// Prisma schema for a typical e-commerce application
+// Used as sample input for the schema parser
+// NOTE: This schema intentionally has common Vibe Coder mistakes:
+//       - Missing FK indexes
+//       - No composite indexes for common queries
+//       - Soft delete pattern without partial index
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        BigInt    @id @default(autoincrement())
+  email     String    @unique
+  name      String
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @default(now()) @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  orders    Order[]
+
+  @@map("users")
+}
+
+model Product {
+  id             BigInt    @id @default(autoincrement())
+  sku            String    @unique
+  name           String
+  description    String?
+  price          Decimal   @db.Decimal(10, 2)
+  category       String?
+  inventoryCount Int       @default(0) @map("inventory_count")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @default(now()) @updatedAt @map("updated_at")
+
+  orderItems     OrderItem[]
+
+  @@map("products")
+}
+
+model Order {
+  id              BigInt    @id @default(autoincrement())
+  userId          BigInt    @map("user_id")
+  status          String    @default("pending")
+  totalAmount     Decimal   @db.Decimal(12, 2) @map("total_amount")
+  shippingAddress String?   @map("shipping_address")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @default(now()) @updatedAt @map("updated_at")
+  deletedAt       DateTime? @map("deleted_at")
+
+  user            User      @relation(fields: [userId], references: [id])
+  items           OrderItem[]
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id        BigInt   @id @default(autoincrement())
+  orderId   BigInt   @map("order_id")
+  productId BigInt   @map("product_id")
+  quantity  Int
+  unitPrice Decimal  @db.Decimal(10, 2) @map("unit_price")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  order     Order    @relation(fields: [orderId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id])
+
+  @@map("order_items")
+}

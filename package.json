@@ -1,0 +1,89 @@
+{
+  "name": "vibe-db-optimizer-agent",
+  "version": "0.1.0",
+  "description": "AI-powered Database Performance Optimizer — diagnose schemas, analyze EXPLAIN plans, rank slow queries, recommend indexes/partitions, and benchmark before/after. Built for Vibe Coders scaling their databases.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "vibe-db": "dist/cli/index.js"
+  },
+  "files": [
+    "dist/",
+    "src/ml/",
+    "src/prompts/",
+    "docker/",
+    "tests/fixtures/",
+    "pyproject.toml",
+    "requirements.txt",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "SECOND-KNOWLEDGE-BRAIN.md"
+  ],
+  "scripts": {
+    "agent": "tsx src/cli/index.ts",
+    "build": "tsc",
+    "dev": "tsx watch src/cli/index.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/ --ext .ts",
+    "lint:fix": "eslint src/ --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "database",
+    "postgresql",
+    "mysql",
+    "performance",
+    "optimization",
+    "index",
+    "query",
+    "explain",
+    "db",
+    "dba",
+    "vibe-coding",
+    "claude",
+    "ai-agent",
+    "sharding",
+    "partitioning",
+    "benchmarking",
+    "k6"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vibe-db/vibe-db-optimizer-agent.git"
+  },
+  "homepage": "https://github.com/vibe-db/vibe-db-optimizer-agent#readme",
+  "bugs": {
+    "url": "https://github.com/vibe-db/vibe-db-optimizer-agent/issues"
+  },
+  "author": "claude",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "chromadb": "^1.10.0",
+    "commander": "^13.1.0",
+    "dotenv": "^16.4.7",
+    "mysql2": "^3.12.0",
+    "pg": "^8.13.1",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/pg": "^8.11.10",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
+4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

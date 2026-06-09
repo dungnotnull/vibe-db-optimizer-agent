@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+dist/
+
+# Secrets
+.env
+*.pem
+*.key
+
+# Build artifacts
+*.tsbuildinfo
+coverage/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ChromaDB
+data/chroma/
+
+# Results
+results/
+
+# Docker
+pgdata/
+mysqldata/
+
+# CommandCode
+.commandcode/

@@ -1,0 +1,25 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "285420.50"
+    },
+    "table": {
+      "table_name": "orders",
+      "access_type": "ALL",
+      "rows_examined_per_scan": 1900000,
+      "rows_produced_per_join": 85000,
+      "filtered": "4.47",
+      "cost_info": {
+        "read_cost": "270000.00",
+        "eval_cost": "15420.50",
+        "prefix_cost": "285420.50",
+        "data_read_per_join": "65M"
+      },
+      "used_columns": ["id", "user_id", "status", "total_amount", "created_at"],
+      "attached_condition": "(`vibe_db`.`orders`.`status` = 'pending') AND (`vibe_db`.`orders`.`created_at` >= TIMESTAMP'2025-01-01 00:00:00')"
+    }
+  },
+  "execution_time_ms": 4520,
+  "note": "MySQL full table scan on 1.9M rows with no usable index"
+}

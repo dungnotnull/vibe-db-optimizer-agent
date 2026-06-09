@@ -1,0 +1,20 @@
+* text=auto eol=lf
+*.ts text eol=lf diff=typescript
+*.tsx text eol=lf diff=typescript
+*.js text eol=lf
+*.json text eol=lf
+*.py text eol=lf diff=python
+*.md text eol=lf diff=markdown
+*.yml text eol=lf
+*.yaml text eol=lf
+*.sql text eol=lf
+*.prisma text eol=lf
+*.toml text eol=lf
+*.sh text eol=lf
+Dockerfile text eol=lf
+LICENSE text eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gz binary
+*.joblib binary

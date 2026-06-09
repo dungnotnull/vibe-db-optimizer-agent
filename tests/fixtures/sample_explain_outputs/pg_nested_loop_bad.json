@@ -1,0 +1,57 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Nested Loop",
+      "Join Type": "Inner",
+      "Startup Cost": 0.00,
+      "Total Cost": 95820123.50,
+      "Plan Rows": 5000,
+      "Plan Width": 512,
+      "Actual Startup Time": 0.120,
+      "Actual Total Time": 12450.830,
+      "Actual Rows": 5230,
+      "Actual Loops": 1,
+      "Shared Hit Blocks": 80,
+      "Shared Read Blocks": 240000,
+      "Plans": [
+        {
+          "Node Type": "Seq Scan",
+          "Relation Name": "orders",
+          "Alias": "o",
+          "Startup Cost": 0.00,
+          "Total Cost": 42850.75,
+          "Plan Rows": 45000,
+          "Plan Width": 200,
+          "Actual Startup Time": 0.045,
+          "Actual Total Time": 120.400,
+          "Actual Rows": 45230,
+          "Actual Loops": 1,
+          "Filter": "(o.status = 'shipped'::text)",
+          "Rows Removed by Filter": 1854770,
+          "Shared Hit Blocks": 1250,
+          "Shared Read Blocks": 48200
+        },
+        {
+          "Node Type": "Seq Scan",
+          "Relation Name": "order_items",
+          "Alias": "oi",
+          "Startup Cost": 0.00,
+          "Total Cost": 1428.33,
+          "Plan Rows": 5000,
+          "Plan Width": 312,
+          "Actual Startup Time": 0.200,
+          "Actual Total Time": 12450.200,
+          "Actual Rows": 5230,
+          "Actual Loops": 45230,
+          "Filter": "(oi.order_id = o.id)",
+          "Rows Removed by Filter": 9984770,
+          "Shared Hit Blocks": 80,
+          "Shared Read Blocks": 191800
+        }
+      ]
+    },
+    "Planning Time": 0.350,
+    "Triggers": [],
+    "Execution Time": 12452.100
+  }
+]

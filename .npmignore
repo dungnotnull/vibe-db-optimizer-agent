@@ -1,0 +1,23 @@
+# npm pack ignore — only distribute built files + configs
+src/
+tests/
+docker/
+node_modules/
+.vscode/
+.idea/
+*.tsbuildinfo
+.env
+.env.example
+.gitattributes
+.gitignore
+.eslintrc.json
+.prettierrc
+.editorconfig
+npm-debug.log*
+yarn-error.log*
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+CLAUDE.md
+PROJECT-detail.md
+PROJECT-DEVELOPMENT-PHASE-TRACKING.md
+SECOND-KNOWLEDGE-BRAIN.md
