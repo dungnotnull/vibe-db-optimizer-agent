@@ -1,4 +1,4 @@
-# vibe-db-optimizer-agent
+<h1 align="center">vibe-db-optimizer-agent</h1>
 
 > **AI-powered Database Performance Optimizer for Vibe Coders**
 >
